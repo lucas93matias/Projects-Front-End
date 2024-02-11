@@ -1,19 +1,20 @@
-function show() {
-    const contactList = document.getElementById('contact-list')
-    console.log(contactList)
+function addInput() {
+    // Seleciona a lista onde os novos inputs serão adicionados
+    const ul = document.getElementById('input-list');
 
-const listElements = document.getElementsByTagName('li')
-console.log(listElements)
+    // Cria um novo item de lista (li)
+    const newLi = document.createElement('li');
+    newLi.className = 'list-item'; // Corrigido para 'className' em vez de 'ClassName'
+    newLi.innerText = 'Novo Input:';
 
-const contactInputs = document.getElementsByClassName('contact-input')
-console.log(contactInputs)
+    // Cria um novo elemento de input
+    const newInput = document.createElement('input');
+    newInput.type = 'text';
+    newInput.name = 'input';
 
-const contacts = document.querySelectorAll('#contact-list > li > label')
-console.log(contacts)
+    // Adiciona o novo input como filho do novo item de lista
+    newLi.appendChild(newInput);
 
-const contact1 = document.getElementsByName('contact1')
-console.log(contact1)
-
-const firstContact = document.querySelector('#contact-list > li > label')
-console.log(firstContact)
+    // Adiciona o novo item de lista à lista existente no DOM
+    ul.appendChild(newLi);
 }
