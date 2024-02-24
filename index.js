@@ -1,21 +1,28 @@
-function register(ev) {
-    const sectionElement = document.querySelector('section'); // Seleciona a seção que contém os campos de entrada
-    const username = sectionElement.querySelector('#username').value; // Obtém o valor do campo de entrada do nome de usuário
-    const password = sectionElement.querySelector('#password').value; // Obtém o valor do campo de entrada da senha
-    const passwordConfirmation = sectionElement.querySelector('#passwordConfirmation').value; // Obtém o valor do campo de entrada de confirmação de senha
+const input = document.getElementById('input')
 
-    if (password === passwordConfirmation) {
-        alert('Usuário ' + username + ' registrado!');
-    } else {
-        alert('As senhas não são iguais! Tente novamente!');
-    }
-}
+document.getElementById('value').addEventListener('click', function () {
+  input.value = 'Olá, mundo!'
 
-const button = document.getElementById('register-button');
+  console.log(input.value)
+  console.log(input.getAttribute('value'))
+})
 
-button.addEventListener('click', register);
+document.getElementById('type').addEventListener('click', function () {
+    //input.type = input.type !== 'date' ? 'text' : 'radio'
+    input.setAttribute('type', 'radio')
+  })
 
-function removeListener() {
-    button .removeEventListener('click', register)
-    alert('Event Removed')
-}
+  document.getElementById('placeholder').addEventListener('click', function () {
+    input.placeholder = 'Digita algo...'
+  })
+
+  document.getElementById('disable').addEventListener('click', function () {
+    input.setAttribute('disabled', !input.disabled)
+  })
+
+  document.getElementById('data').addEventListener('click', function () {
+    const data = input.dataset.somethingElse
+    console.log("O valor do atributo data-something-else é: " + data)
+    input.dataset.somethingElse = 'Algum outro valor'
+    console.log("O valor do atributo data-something-else agora é: " + input.dataset.somethingElse)
+  })
